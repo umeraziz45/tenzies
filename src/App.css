@@ -1,0 +1,50 @@
+*, *::before, *::after {
+box-sizing: border-box;
+}
+
+* {
+margin: 0;
+padding: 0;
+font: inherit;
+}
+
+html {
+color-scheme: dark light;
+}
+
+body {
+min-height: 100vh;
+background: #0B2434;
+padding: 20px;
+}
+
+img, picture, svg, video {
+display: block;
+max-width: 100%;
+}
+
+.App {
+  background: #f5f5f5;
+  height: 80vh;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+ 
+.diceContainer {
+  display: grid;
+  grid-template: auto auto / repeat(5, 1fr);
+}
+
+.dice {
+  margin-right: 1em;
+  background: #fff;
+  padding: .5em;
+  border-radius: 5px;
+  margin-bottom: 1em;
+}
