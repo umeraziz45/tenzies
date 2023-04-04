@@ -42,7 +42,8 @@ max-width: 100%;
   grid-template: auto auto / repeat(5, 1fr);
 }
 
-.dice {
+.dice,
+.clicked {
   margin-right: 1em;
   background: #fff;
   padding: .5em;
@@ -50,6 +51,10 @@ max-width: 100%;
   margin-bottom: 1em;
   box-shadow: 0px 2px 2px rgb(0, 0, 0, 0.15);
   cursor: pointer;
+}
+
+.clicked {
+  background: rgb(143, 231, 143);
 }
 
 .diceBtn {
