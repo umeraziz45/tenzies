@@ -4,10 +4,9 @@ import Dice from './components/Dice'
 
 function App() {
 
-  // a set of random numbers on the page
-  const [dice, setDice] = useState([]);
-    // Generate array of 10 random numbers
-  const newDice = () => {
+  const [dice, setDice] = useState(allNewDice());
+
+  function allNewDice () {
     const diceArr = [];
     for( let i = 0; i < 10; i++){
       diceArr.push(Math.ceil(Math.random() * 6));
@@ -15,7 +14,13 @@ function App() {
     return diceArr;
   }
 
-  console.log(newDice())
+  function rollDice() {
+    setDice( allNewDice());
+  }
+
+  const diceElement = dice.map( elem => <Dice value={elem} />
+  )
+
   // clicking them turns the number a different colour
   // click button that returns new numbers on screen except for the ones that were clicked
   // 
@@ -23,37 +28,9 @@ function App() {
   return (
     <div className="App">
       <div className="diceContainer">
-      <Dice
-       value={1}
-      />
-      <Dice
-       value={3}
-      />
-      <Dice
-       value={4}
-      />
-      <Dice
-       value={3}
-      />
-      <Dice
-       value={1}
-      />
-      <Dice
-       value={2}
-      />
-      <Dice
-       value={4}
-      />
-      <Dice
-       value={1}
-      />
-      <Dice
-       value={5}
-      />
-      <Dice
-       value={6}
-      />
+       {diceElement}
       </div>
+      <button className='diceBtn' onClick={rollDice}>Roll</button>
     </div>
   )
 }
