@@ -14,24 +14,36 @@ function App() {
     for(let i = 0; i < 10; i++){
       diceArr.push({
         value: Math.ceil(Math.random() * 6),
-        isHeld: true,
+        isHeld: false,
         id: nanoid()
       });
     }
     return diceArr;
   }
 
-  
+  const hold = id => {
+    setDice(oldDice => oldDice.map( die => {
+      return die.id == id ?
+      {...die, isHeld: !die.isHeld} :
+      die
+    }))
+  }
 
-  const diceHtml = dice.map( elem => <Dice value={elem.value} id={elem.id} isHeld={elem.isHeld} />)
-
+  const diceHtml = dice.map( elem => <Dice key={elem.id} value={elem.value} isHeld={elem.isHeld} hold={() => hold(elem.id)} />)
 
   // clicking them turns the number a different colour
   // click button that returns new numbers on screen except for the ones that were clicked
-  // 
-
+   // create a function that loops through array and returns one with new numbers except for the one that have true as value for isHeld
   const rollDice = () => {
-    setDice(allNewDice());
+    setDice( oldArray => oldArray.map( elem => {
+      return elem.isHeld ? 
+             elem :
+             {
+              value: Math.ceil(Math.random() * 6),
+              isHeld: false,
+              id: nanoid()
+             }
+    }));
   }
 
   return (
