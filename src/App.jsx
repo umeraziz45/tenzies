@@ -12,11 +12,7 @@ function App() {
   function allNewDice () {
     const diceArr = [];
     for(let i = 0; i < 10; i++){
-      diceArr.push({
-        value: Math.ceil(Math.random() * 6),
-        isHeld: false,
-        id: nanoid()
-      });
+      diceArr.push( generateNum());
     }
     return diceArr;
   }
@@ -38,12 +34,16 @@ function App() {
     setDice( oldArray => oldArray.map( elem => {
       return elem.isHeld ? 
              elem :
-             {
-              value: Math.ceil(Math.random() * 6),
-              isHeld: false,
-              id: nanoid()
-             }
+             generateNum()
     }));
+  }
+
+  function generateNum () {
+   return {
+            value: Math.ceil(Math.random() * 6),
+            isHeld: false,
+            id: nanoid()
+          }
   }
 
   return (
