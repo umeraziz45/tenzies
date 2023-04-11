@@ -23,7 +23,16 @@ function App() {
   }
 
   
-  const rollDice = () => setDice( () => createNewDice());
+  const rollDice = () => setDice( prevArray =>  prevArray.map( elem =>  {
+    return elem.isHeld ? 
+      elem :
+      {
+        value:Math.ceil(Math.random() * 6),
+        isHeld: false,
+        id: nanoid() 
+      }
+    }
+  ));
   
   const clickDice = id => {
    setDice(oldDice => oldDice.map( elem => {
