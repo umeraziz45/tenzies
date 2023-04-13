@@ -22,17 +22,21 @@ function App() {
     return diceArr;
   }
 
+  
+  const rollDice = () => setDice( () => createNewDice());
+  
+  const clickDice = id => {
+   setDice(oldDice => oldDice.map( elem => {
+    return elem.id == id ? 
+      {...elem, isHeld: !elem.isHeld} :
+      elem
+    })
+   ) 
+  }
+  
   const diceHtml = dice.map( elem => {
     return <Dice key={elem.id} value={elem.value} isHeld={elem.isHeld}  clickDice={() => clickDice(elem.id)} />
   });
-
-  const rollDice = () => setDice( () => createNewDice());
-
-  const clickDice = id => {
-    console.log(id);
-  }
-
-  console.log(dice);
 
   return (
     <div className='App'>
