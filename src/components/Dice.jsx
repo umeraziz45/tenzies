@@ -2,11 +2,14 @@ import React from "react";
 
 export default function Dice (props) {
   return (
-    <div 
-    className={props.isHeld ? 'clicked' : 'dice'} 
-    onClick={props.hold}
+    <div className={
+      props.isHeld ?
+      'clicked' :
+      'dice'
+    }
+    onClick={props.clickDice}
     >
-      <h2 className="dice-number">{props.value}</h2>
+      <h2 >{props.value}</h2>
     </div>
   )
 }
