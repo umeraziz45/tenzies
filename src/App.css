@@ -42,8 +42,13 @@ max-width: 100%;
   grid-template: auto auto / repeat(5, 1fr);
 }
 
+.score {
+  display: flex;
+}
+
 .dice,
-.clicked {
+.clicked,
+.counter {
   margin-right: 1em;
   background: #fff;
   padding: .5em;
@@ -55,6 +60,14 @@ max-width: 100%;
 
 .clicked {
   background: rgb(143, 231, 143);
+}
+
+.score p {
+  margin: 1.33em .5em;
+}
+
+.counter {
+  margin: 1em 0;
 }
 
 .diceBtn {
